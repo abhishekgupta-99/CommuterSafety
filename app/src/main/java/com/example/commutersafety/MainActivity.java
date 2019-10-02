@@ -1,5 +1,4 @@
 package com.example.commutersafety;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +12,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -33,11 +31,11 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private GoogleSignInOptions gso;
-   private GoogleSignInClient mGoogleSignInClient;
-   private ImageButton google_btn;
-   private SignInButton signInButton;
-   static final int RC_SIGN_IN = 123;
-   private MaterialButton loginbt,signupbt;
+    private GoogleSignInClient mGoogleSignInClient;
+    private ImageButton google_btn;
+    private SignInButton signInButton;
+    static final int RC_SIGN_IN = 123;
+    private MaterialButton loginbt,signupbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             //Start ur new activity here
-           // startActivity(new Intent(MainActivity.this,MapsActivity.class));
+            // startActivity(new Intent(MainActivity.this,MapsActivity.class));
 
 
             //updateUI(account);
@@ -150,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Map<String, Object> user = new HashMap<>();
             user.put("UserName", personName);
             user.put("Email", personEmail);
-           // user.put("Phone Number",phone_number);
+            // user.put("Phone Number",phone_number);
 
 
             // Add a new document with a generated ID
