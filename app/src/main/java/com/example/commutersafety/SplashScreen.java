@@ -3,6 +3,8 @@ package com.example.commutersafety;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import android.app.Activity;
 import android.util.Pair;
 
 import android.app.ActivityOptions;
@@ -45,6 +47,7 @@ public class SplashScreen extends AppCompatActivity {
 
                 startActivity(i,options.toBundle());
                 //invoke the SecondActivity.
+
 
                 finish();
                 //the current activity will get finished.

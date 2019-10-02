@@ -24,23 +24,31 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
     private GoogleSignInOptions gso;
    private GoogleSignInClient mGoogleSignInClient;
    private ImageButton google_btn;
    private SignInButton signInButton;
    static final int RC_SIGN_IN = 123;
+   private MaterialButton loginbt,signupbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loginbt = findViewById(R.id.material_button);
+        signupbt = findViewById(R.id.materialButton);
+        signupbt.setOnClickListener(this);
+        loginbt.setOnClickListener(this);
+
 
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         //getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -115,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
             
             //Start ur new activity here
+            startActivity(new Intent(MainActivity.this,MapsActivity.class));
 
 
             //updateUI(account);
@@ -160,5 +169,17 @@ public class MainActivity extends AppCompatActivity {
                     });
 
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view==loginbt){
+            startActivity(new Intent(MainActivity.this, Login.class));
+        }
+
+        if(view ==signupbt){
+            startActivity(new Intent(MainActivity.this, Signup.class));
+        }
+
     }
 }

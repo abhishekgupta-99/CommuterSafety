@@ -8,4 +8,13 @@
     <string name="tnc">By creating new account,you agree to our
 \nTerms of Services &amp; Privacy Policy</string>
     <string name="or_log_in">Or log in with</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string-array name="unsafezone">
+        <item>Potholes</item>
+        <item>Man Holes</item>
+        <item>Live Wires</item>
+        <item>Others</item>
+    </string-array>
+
 </resources>
