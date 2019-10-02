@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">CommuterSafety</string>
+    <string name="app_name2">Commuter\nSafety</string>
+    <string name="welcome_text">Welcome to Commuter\nSafety</string>
+    <string name="tag_line">Your safety is our concern</string>
+    <string name="login_text_btn">LOGIN</string>
+    <string name="register_text_btn">REGISTER</string>
+    <string name="tnc">By creating new account,you agree to our
+\nTerms of Services &amp; Privacy Policy</string>
+    <string name="or_log_in">Or log in with</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string-array name="unsafezone">
+        <item>Potholes</item>
+        <item>Man Holes</item>
+        <item>Live Wires</item>
+        <item>Others</item>
+    </string-array>
+
+</resources>
