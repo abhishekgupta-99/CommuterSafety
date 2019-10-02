@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             // Signed in successfully, show authenticated UI.
             Toast.makeText(this, "Successfully Signed In", Toast.LENGTH_SHORT).show();
 
-            
+
             //Start ur new activity here
 
 
