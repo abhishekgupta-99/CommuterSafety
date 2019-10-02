@@ -143,12 +143,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String personGivenName = account.getGivenName();
             String personFamilyName = account.getFamilyName();
             String personEmail = account.getEmail();
+            String phone_number="";
             String personId = account.getId();
             Uri personPhoto = account.getPhotoUrl();
 
             Map<String, Object> user = new HashMap<>();
             user.put("UserName", personName);
             user.put("Email", personEmail);
+           // user.put("Phone Number",phone_number);
 
 
             // Add a new document with a generated ID

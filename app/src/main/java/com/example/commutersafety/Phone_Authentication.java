@@ -1,4 +1,6 @@
 package com.example.commutersafety;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -7,11 +9,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseException;
@@ -22,7 +29,11 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class Phone_Authentication extends AppCompatActivity implements
@@ -31,6 +42,7 @@ public class Phone_Authentication extends AppCompatActivity implements
     private static final String TAG = "PhoneAuthActivity";
 
     private static final String KEY_VERIFY_IN_PROGRESS = "key_verify_in_progress";
+    String phone_number_user="";
 
     private static final int STATE_INITIALIZED = 1;
     private static final int STATE_CODE_SENT = 2;
@@ -201,6 +213,7 @@ public class Phone_Authentication extends AppCompatActivity implements
 
 
     private void startPhoneNumberVerification(String phoneNumber) {
+        phone_number_user=mPhoneNumberField.getText().toString();
         // [START start_phone_auth]
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 phoneNumber,        // Phone number to verify
@@ -242,6 +255,7 @@ public class Phone_Authentication extends AppCompatActivity implements
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
+                            updatefirestore_user_phonenumber(phone_number_user);
 
                             FirebaseUser user = task.getResult().getUser();
                             // [START_EXCLUDE]
@@ -326,12 +340,18 @@ public class Phone_Authentication extends AppCompatActivity implements
                     }
                 }
 
+                startActivity(new Intent(this,MapsActivity.class));
+                finish();
+
                 break;
             case STATE_SIGNIN_FAILED:
                 // No-op, handled by sign-in check
                 mDetailText.setText(R.string.status_sign_in_failed);
                 break;
             case STATE_SIGNIN_SUCCESS:
+
+                startActivity(new Intent(this,MapsActivity.class));
+                finish();
                 // Np-op, handled by sign-in check
                 break;
         }
@@ -371,6 +391,42 @@ public class Phone_Authentication extends AppCompatActivity implements
             v.setEnabled(true);
         }
     }
+
+
+
+    private void updatefirestore_user_phonenumber(String phone_number) {
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+        String person_email=new String();
+        if (acct != null) {
+           person_email = acct.getEmail();
+        }
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            Map<String, Object> user_phone = new HashMap<>();
+            user_phone.put("Phone number", phone_number);
+            // user.put("Phone Number",phone_number);
+
+
+            // Add a new document with a generated ID
+            db.collection("users").document(person_email)
+                    .set(user_phone, SetOptions.merge())
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                          //  Toast.makeText(MainActivity.this, "Firestore updated", Toast.LENGTH_SHORT).show();
+
+                            //startActivity(new Intent(MainActivity.this, Phone_Authentication.class));
+
+                            //  Log.d(TAG, "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Log.w(TAG, "Error writing document", e);
+                        }
+                    });
+        }
 
     private void disableViews(View... views) {
         for (View v : views) {
