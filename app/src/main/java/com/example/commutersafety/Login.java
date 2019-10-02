@@ -38,9 +38,9 @@ public class Login extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         loginEmailId = findViewById(R.id.loginEmail);
-        logInpasswd = findViewById(R.id.loginpaswd);
-        btnLogIn = findViewById(R.id.btnLogIn);
-        signup = findViewById(R.id.TVSignIn);
+        //logInpasswd = findViewById(R.id.loginpaswd);
+        //btnLogIn = findViewById(R.id.btnLogIn);
+        //signup = findViewById(R.id.TVSignIn);
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -55,14 +55,14 @@ public class Login extends AppCompatActivity {
                 }
             }
         };
-        signup.setOnClickListener(new View.OnClickListener() {
+        /*signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent I = new Intent(Login.this, Signup.class);
                 startActivity(I);
             }
-        });
-        btnLogIn.setOnClickListener(new View.OnClickListener() {
+        });*/
+        /*btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String userEmail = loginEmailId.getText().toString();
@@ -90,7 +90,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
 
     }
 

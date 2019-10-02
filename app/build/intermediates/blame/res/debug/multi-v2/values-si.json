@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android Projects\\Commuter_Safety\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-si\\values-si.xml",
+            "outputFile": "D:\\Android Projects\\Commuter_Safety_3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-si\\values-si.xml",
             "map": [
                 {
                     "source": "C:\\Users\\pranjalpc\\.gradle\\caches\\transforms-2\\files-2.1\\26923404d8e377cf48027104175cd048\\play-services-base-17.1.0\\res\\values-si\\values.xml",

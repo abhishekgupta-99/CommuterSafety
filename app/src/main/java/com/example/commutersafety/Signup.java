@@ -1,6 +1,7 @@
 package com.example.commutersafety;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +33,13 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+
         mDatabase =  FirebaseDatabase.getInstance().getReference("user_details");
 
         //getSupportActionBar().hide(); // hide the title bar
@@ -39,13 +48,13 @@ public class Signup extends AppCompatActivity {
         spname = findViewById(R.id.sign_name);
         phone = findViewById(R.id.ETemail);
         emailId = findViewById(R.id.ETemail2);
-        passwd = findViewById(R.id.ETpassword);
-        repasswd = findViewById(R.id.ETpassword2);
-        btnSignUp = findViewById(R.id.btnSignUp);
-        signIn = findViewById(R.id.TVSignIn);
+        //passwd = findViewById(R.id.ETpassword);
+        //repasswd = findViewById(R.id.ETpassword2);
+        //btnSignUp = findViewById(R.id.btnSignUp);
+        //signIn = findViewById(R.id.TVSignIn);
 
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        /*btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String emailID = emailId.getText().toString();
@@ -83,13 +92,13 @@ public class Signup extends AppCompatActivity {
                     Toast.makeText(Signup.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
-        signIn.setOnClickListener(new View.OnClickListener() {
+        });*/
+        /*signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent I = new Intent(Signup.this, Login.class);
                 startActivity(I);
             }
-        });
+        });*/
     }
 }

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android Projects\\Commuter_Safety\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lo\\values-lo.xml",
+            "outputFile": "D:\\Android Projects\\Commuter_Safety_3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lo\\values-lo.xml",
             "map": [
                 {
                     "source": "C:\\Users\\pranjalpc\\.gradle\\caches\\transforms-2\\files-2.1\\ce3d5a9d931a7a313300c2e5091efcd8\\jetified-play-services-basement-17.0.0\\res\\values-lo\\values.xml",
