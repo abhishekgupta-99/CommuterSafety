@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -25,13 +24,14 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private GoogleSignInOptions gso;
    private GoogleSignInClient mGoogleSignInClient;
    private ImageButton google_btn;
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
 
             //Start ur new activity here
-            startActivity(new Intent(MainActivity.this,MapsActivity.class));
+           // startActivity(new Intent(MainActivity.this,MapsActivity.class));
 
 
             //updateUI(account);
@@ -152,22 +152,24 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
 
             // Add a new document with a generated ID
-            db.collection("users")
-                    .add(user)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            db.collection("users").document(personEmail)
+                    .set(user)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(MainActivity.this, "Firestore updated", Toast.LENGTH_SHORT).show();
+
+                            startActivity(new Intent(MainActivity.this, Phone_Authentication.class));
+
+                            //  Log.d(TAG, "DocumentSnapshot successfully written!");
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Log.w("FireStore", "Error adding document", e);
-                            Toast.makeText(MainActivity.this, "Successfully updated firestore", Toast.LENGTH_SHORT).show();
+                            // Log.w(TAG, "Error writing document", e);
                         }
                     });
-
         }
     }
 
