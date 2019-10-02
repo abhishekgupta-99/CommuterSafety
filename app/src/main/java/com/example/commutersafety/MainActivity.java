@@ -3,13 +3,16 @@ package com.example.commutersafety;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -21,30 +24,45 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
     private GoogleSignInOptions gso;
    private GoogleSignInClient mGoogleSignInClient;
+   private ImageButton google_btn;
    private SignInButton signInButton;
    static final int RC_SIGN_IN = 123;
+   private MaterialButton loginbt,signupbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        );
-        //getWindow().setStatusBarColor(Color.TRANSPARENT);
+        loginbt = findViewById(R.id.material_button);
+        signupbt = findViewById(R.id.materialButton);
+        signupbt.setOnClickListener(this);
+        loginbt.setOnClickListener(this);
 
-        signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
+
+        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        //getWindow().setStatusBarColor(Color.TRANSPARENT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+
+        //signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        //signInButton.setSize(SignInButton.SIZE_STANDARD);
+
+        google_btn = (ImageButton) findViewById(R.id.sign_in_button);
 
         //FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -59,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     private void googlesignin() {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        google_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -105,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             //Start ur new activity here
+            startActivity(new Intent(MainActivity.this,MapsActivity.class));
 
 
             //updateUI(account);
@@ -150,5 +169,17 @@ public class MainActivity extends AppCompatActivity {
                     });
 
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view==loginbt){
+            startActivity(new Intent(MainActivity.this, Login.class));
+        }
+
+        if(view ==signupbt){
+            startActivity(new Intent(MainActivity.this, Signup.class));
+        }
+
     }
 }

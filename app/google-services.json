@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1025379890928-4kgbdpp1dbu67440tp5vr9usdi7vbq0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.commutersafety",
+            "certificate_hash": "14ee2fef9ef5b663510e41f68db9a6358fc01060"
+          }
+        },
+        {
           "client_id": "1025379890928-cgfh2fp0h6n24db8sck9gr3mkr7m9cid.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
