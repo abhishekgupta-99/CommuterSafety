@@ -14,7 +14,9 @@
     <string name="password">Password</string>
     <string name="forgot_password">Forgot Password ?</string>
     <string name="dont_have_account">Dont\'t have an account</string>
+    <string name="have_account">Already Registered ?</string>
     <string name="register_now">Register Now</string>
+    <string name="login_now">Login Now</string>
     <string name="back">Back</string>
     <string name="register_new">Register New Account</string>
     <string name="username">Username</string>

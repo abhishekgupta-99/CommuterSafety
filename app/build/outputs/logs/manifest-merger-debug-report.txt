@@ -23,6 +23,7 @@ MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\pranjalpc\.
 MERGED from [jp.wasabeef:glide-transformations:3.1.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\a26323346c966d670bec85dab849192d\jetified-glide-transformations-3.1.0\AndroidManifest.xml:2:1-12:12
 MERGED from [com.github.bumptech.glide:glide:4.6.1] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\55e99aa36bfcf1489a8e619ec0e39d94\jetified-glide-4.6.1\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\91482f6452f8e2279fb096c6daca6c99\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha01] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\4d845618805b6de232edbf92558f3bee\recyclerview-1.1.0-alpha01\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\51982bb1efd8b2a3c594646c0d02688c\firebase-common-19.1.0\AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\75185506230655574b8334cb643643f0\play-services-tasks-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\ce3d5a9d931a7a313300c2e5091efcd8\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
@@ -32,7 +33,6 @@ MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\pranjalpc\.g
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\599a956fc5880721b736c36d7a2a90a9\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0-alpha01] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\2e54cd56d2c1bcfd250dcd98d2e3eef9\coordinatorlayout-1.1.0-alpha01\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\45739e064fd8ad2faa9c3686c49a0516\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha01] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\4d845618805b6de232edbf92558f3bee\recyclerview-1.1.0-alpha01\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.transition:transition:1.0.1] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\6fcf9d29709e2fbeed28193d608b0882\transition-1.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\704f77bb835d112513bfb707984cbdc1\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\ac681daf82c56bbcb32cd485fc064a28\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -282,6 +282,8 @@ MERGED from [com.github.bumptech.glide:glide:4.6.1] C:\Users\pranjalpc\.gradle\c
 MERGED from [com.github.bumptech.glide:glide:4.6.1] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\55e99aa36bfcf1489a8e619ec0e39d94\jetified-glide-4.6.1\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\91482f6452f8e2279fb096c6daca6c99\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\91482f6452f8e2279fb096c6daca6c99\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha01] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\4d845618805b6de232edbf92558f3bee\recyclerview-1.1.0-alpha01\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha01] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\4d845618805b6de232edbf92558f3bee\recyclerview-1.1.0-alpha01\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\51982bb1efd8b2a3c594646c0d02688c\firebase-common-19.1.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\51982bb1efd8b2a3c594646c0d02688c\firebase-common-19.1.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\75185506230655574b8334cb643643f0\play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
@@ -300,8 +302,6 @@ MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0-alpha01] C:\User
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0-alpha01] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\2e54cd56d2c1bcfd250dcd98d2e3eef9\coordinatorlayout-1.1.0-alpha01\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\45739e064fd8ad2faa9c3686c49a0516\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\45739e064fd8ad2faa9c3686c49a0516\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha01] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\4d845618805b6de232edbf92558f3bee\recyclerview-1.1.0-alpha01\AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha01] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\4d845618805b6de232edbf92558f3bee\recyclerview-1.1.0-alpha01\AndroidManifest.xml:20:5-44
 MERGED from [androidx.transition:transition:1.0.1] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\6fcf9d29709e2fbeed28193d608b0882\transition-1.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.transition:transition:1.0.1] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\6fcf9d29709e2fbeed28193d608b0882\transition-1.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\pranjalpc\.gradle\caches\transforms-2\files-2.1\704f77bb835d112513bfb707984cbdc1\loader-1.0.0\AndroidManifest.xml:20:5-44

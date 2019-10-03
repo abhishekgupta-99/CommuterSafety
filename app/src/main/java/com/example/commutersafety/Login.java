@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
-    public EditText loginEmailId, logInpasswd;
+    public EditText loginEmailId, loginPassword, logInpasswd;
     Button btnLogIn;
     TextView signup;
     FirebaseAuth firebaseAuth;
@@ -38,8 +38,9 @@ public class Login extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         loginEmailId = findViewById(R.id.loginEmail);
-        //logInpasswd = findViewById(R.id.loginpaswd);
-        //btnLogIn = findViewById(R.id.btnLogIn);
+        logInpasswd = findViewById(R.id.password_edit);
+        signup = findViewById(R.id.textView7);
+        btnLogIn = findViewById(R.id.login);
         //signup = findViewById(R.id.TVSignIn);
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -55,14 +56,14 @@ public class Login extends AppCompatActivity {
                 }
             }
         };
-        /*signup.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent I = new Intent(Login.this, Signup.class);
                 startActivity(I);
             }
-        });*/
-        /*btnLogIn.setOnClickListener(new View.OnClickListener() {
+        });
+        btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String userEmail = loginEmailId.getText().toString();
@@ -90,7 +91,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             }
-        });*/
+        });
 
     }
 
