@@ -24,7 +24,7 @@ public class Signup extends AppCompatActivity {
 
     public EditText emailId, passwd, spname,phone,repasswd;
     Button btnSignUp;
-    TextView signIn;
+    TextView signIn,login;
     FirebaseAuth firebaseAuth;
     private DatabaseReference mDatabase;
 
@@ -48,13 +48,14 @@ public class Signup extends AppCompatActivity {
         spname = findViewById(R.id.sign_name);
         phone = findViewById(R.id.ETemail);
         emailId = findViewById(R.id.ETemail2);
-        //passwd = findViewById(R.id.ETpassword);
+        passwd = findViewById(R.id.ETpassword2);
+
         //repasswd = findViewById(R.id.ETpassword2);
-        //btnSignUp = findViewById(R.id.btnSignUp);
-        //signIn = findViewById(R.id.TVSignIn);
+        btnSignUp = findViewById(R.id.login);
+        signIn = findViewById(R.id.textView7);
 
 
-        /*btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String emailID = emailId.getText().toString();
@@ -92,13 +93,13 @@ public class Signup extends AppCompatActivity {
                     Toast.makeText(Signup.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             }
-        });*/
-        /*signIn.setOnClickListener(new View.OnClickListener() {
+        });
+        signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent I = new Intent(Signup.this, Login.class);
                 startActivity(I);
             }
-        });*/
+        });
     }
 }
