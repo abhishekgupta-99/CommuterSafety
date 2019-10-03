@@ -1,10 +1,8 @@
 package com.example.commutersafety;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -14,7 +12,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -25,19 +22,20 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private GoogleSignInOptions gso;
-   private GoogleSignInClient mGoogleSignInClient;
-   private ImageButton google_btn;
-   private SignInButton signInButton;
-   static final int RC_SIGN_IN = 123;
-   private MaterialButton loginbt,signupbt;
+    private GoogleSignInClient mGoogleSignInClient;
+    private ImageButton google_btn;
+    private SignInButton signInButton;
+    static final int RC_SIGN_IN = 123;
+    private MaterialButton loginbt,signupbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,9 +119,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             // Signed in successfully, show authenticated UI.
             Toast.makeText(this, "Successfully Signed In", Toast.LENGTH_SHORT).show();
 
-            
+
             //Start ur new activity here
-            startActivity(new Intent(MainActivity.this,MapsActivity.class));
+            // startActivity(new Intent(MainActivity.this,MapsActivity.class));
 
 
             //updateUI(account);
@@ -143,31 +141,35 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             String personGivenName = account.getGivenName();
             String personFamilyName = account.getFamilyName();
             String personEmail = account.getEmail();
+            String phone_number="";
             String personId = account.getId();
             Uri personPhoto = account.getPhotoUrl();
 
             Map<String, Object> user = new HashMap<>();
             user.put("UserName", personName);
             user.put("Email", personEmail);
+            // user.put("Phone Number",phone_number);
 
 
             // Add a new document with a generated ID
-            db.collection("users")
-                    .add(user)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            db.collection("users").document(personEmail)
+                    .set(user)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(MainActivity.this, "Firestore updated", Toast.LENGTH_SHORT).show();
+
+                            startActivity(new Intent(MainActivity.this, Phone_Authentication.class));
+
+                            //  Log.d(TAG, "DocumentSnapshot successfully written!");
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Log.w("FireStore", "Error adding document", e);
-                            Toast.makeText(MainActivity.this, "Successfully updated firestore", Toast.LENGTH_SHORT).show();
+                            // Log.w(TAG, "Error writing document", e);
                         }
                     });
-
         }
     }
 
