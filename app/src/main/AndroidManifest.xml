@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Phone_Authentication"></activity>
+        <activity android:name=".WallActivity"></activity>
+        <activity android:name=".Phone_Authentication" />
         <activity android:name=".Signup" />
         <activity android:name=".Login" />
         <activity android:name=".MarkZone" />

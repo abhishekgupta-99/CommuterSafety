@@ -31,7 +31,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.commutersafety.WallActivity" />
+        <activity android:name="com.example.commutersafety.Phone_Authentication" />
         <activity android:name="com.example.commutersafety.Signup" />
         <activity android:name="com.example.commutersafety.Login" />
         <activity android:name="com.example.commutersafety.MarkZone" />

@@ -100,4 +100,9 @@ public class Login extends AppCompatActivity {
         super.onStart();
         firebaseAuth.addAuthStateListener(authStateListener);
     }
+
+    public void wallActivity(View view) {
+        startActivity(new Intent(Login.this,WallActivity.class));
+        finish();
+    }
 }
