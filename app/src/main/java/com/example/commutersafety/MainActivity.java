@@ -26,8 +26,12 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+//Permission Manager Import
+import com.karan.churi.PermissionManager.PermissionManager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private GoogleSignInOptions gso;
@@ -37,10 +41,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static final int RC_SIGN_IN = 123;
     private MaterialButton loginbt,signupbt;
 
+    //Permission Manager Object
+    PermissionManager permissionManager;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //PERMISSION MANAGER CODE CALL
+        permissionManager=new PermissionManager() {};
+        permissionManager.checkAndRequestPermissions(this);
 
         loginbt = (MaterialButton) findViewById(R.id.material_button);
         signupbt = (MaterialButton) findViewById(R.id.materialButton);
@@ -181,5 +194,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(MainActivity.this, Signup.class));
         }
 
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        permissionManager.checkResult(requestCode,permissions,grantResults);
+
+        //FOR DEBUGGING
+        ArrayList<String> granted = permissionManager.getStatus().get(0).granted;
+        ArrayList<String> denied = permissionManager.getStatus().get(0).denied;
     }
 }

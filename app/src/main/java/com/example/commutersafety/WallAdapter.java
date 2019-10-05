@@ -3,7 +3,10 @@ package com.example.commutersafety;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -21,14 +24,17 @@ public class WallAdapter extends RecyclerView.Adapter<WallAdapter.ViewHolder> {
         private TextView textloc2;
         private TextView texttime;
         private CardView wallcard;
+        private ImageView imageView;
 
         public ViewHolder(View itemView){
             super(itemView);
 
             wallcard = itemView.findViewById(R.id.wall_card);
-            textloc1 = itemView.findViewById(R.id.actual_loc);
-            textloc2 = itemView.findViewById(R.id.area);
-            texttime = itemView.findViewById(R.id.time);
+            textloc1 = itemView.findViewById(R.id.title);
+            textloc2 = itemView.findViewById(R.id.description);
+            texttime = itemView.findViewById(R.id.solution);
+            imageView = itemView.findViewById(R.id.imageView);
+
         }
     }
 
@@ -52,6 +58,10 @@ public class WallAdapter extends RecyclerView.Adapter<WallAdapter.ViewHolder> {
         holder.textloc1.setText(location1[position]);
         holder.textloc2.setText(location2[position]);
         holder.texttime.setText(time[position]);
+        //holder.imageView
+        /*Glide.with(WallActivity.this)
+                .load(model.getZoneImage())
+                .into(holder.imageView);*/
     }
 
     @Override
