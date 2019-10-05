@@ -42,7 +42,6 @@ public class Login extends AppCompatActivity {
         }
 
 
-
         //getSupportActionBar().hide(); // hide the title bar
 
         firebaseAuth = FirebaseAuth.getInstance();
