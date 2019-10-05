@@ -34,6 +34,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.commutersafety.WallActivity" />
+        <activity android:name="com.example.commutersafety.ZoneInfo" />
         <activity android:name="com.example.commutersafety.Phone_Authentication" />
         <activity android:name="com.example.commutersafety.Signup" />
         <activity android:name="com.example.commutersafety.Login" />
@@ -114,6 +115,10 @@
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.example.commutersafety.com.squareup.picasso"
+            android:exported="false" />
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
             android:authorities="com.example.commutersafety.firebaseinitprovider"
